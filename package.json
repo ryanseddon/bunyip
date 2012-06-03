@@ -1,7 +1,7 @@
 {
   "name": "bunyip",
   "description": "Automate client-side unit testing in real browsers using the cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://ryanseddon.github.com/bunyip",
   "author": {
     "name": "Ryan Seddon",
@@ -41,5 +41,5 @@
     "vows": ">= 0.5.8",
     "mockery": ">= 1.1.2"
   },
-  "keywords": []
+  "keywords": ["unit tests", "bunyip", "browserstack", "mobile", "cli"]
 }
