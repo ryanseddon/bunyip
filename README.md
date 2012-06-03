@@ -6,7 +6,7 @@ Automate client-side unit testing in real browsers using the CLI
 Install the module with: `npm install -g bunyip`. This is a CLI tool so it needs to be globally installed.
 
 ### BrowserStack account
-In order for bunyip to flex its real muscle I recommend you get a paid [BrowserStack account])(http://www.browserstack.com/pricing) as all paid accounts have access to their API. Without the API you'll need to connect your own slave browsers to bunyip.
+In order for bunyip to flex its real muscle I recommend you get a paid [BrowserStack account](http://www.browserstack.com/pricing) as all paid accounts have access to their API. Without the API you'll need to connect your own slave browsers to bunyip.
 
 ### localhost sharing service
 If you wish to test on devices that are not part of your local network you'll be required to setup a tunneling service. I recommend [pagekite](https://pagekite.net/support/quickstart/) as it gives you a nice free chunk of data and allows you to specify a reusable subdomain. [Showoff.io](https://showoff.io/) is another good option.
