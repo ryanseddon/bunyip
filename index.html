@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Bunyip : Automate client-side unit testing in real browsers using the CLI" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Bunyip</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ryanseddon/bunyip">View on GitHub</a>
+
+          <h1 id="project_title">Bunyip</h1>
+          <h2 id="project_tagline">Automate client-side unit testing in real browsers using the CLI</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ryanseddon/bunyip/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ryanseddon/bunyip/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>bunyip</h1>
+
+<p>Automate client-side unit testing in real browsers using the CLI</p>
+
+
+
+<h2>Getting Started</h2>
+
+<p>Install the module with: <code>npm install -g bunyip</code>. This is a CLI tool so it needs to be globally installed.</p>
+
+<h3>BrowserStack account</h3>
+
+<p>In order for bunyip to flex its real muscle I recommend you get a paid <a href="http://www.browserstack.com/pricing">BrowserStack account</a> as all paid accounts have access to their API. Without the API you'll need to connect your own slave browsers to bunyip.</p>
+
+<h3>localhost sharing service</h3>
+
+<p>If you wish to test on devices that are not part of your local network you'll be required to setup a tunneling service. I recommend <a href="https://pagekite.net/support/quickstart/">pagekite</a> as it gives you a nice free chunk of data and allows you to specify a reusable subdomain. <a href="https://showoff.io/">Showoff.io</a> is another good option.</p>
+
+<h3>Setup the config.js file</h3>
+
+<p>If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the lib folder you'll see a <code>config-template.js</code> file, copy it and rename to config.js. Edit the values to whatever you need it to be.</p>
+
+<div class="highlight">
+<pre><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">config</span> <span class="o">||</span> <span class="p">{};</span>
+
+<span class="nx">config</span><span class="p">.</span><span class="nx">browserstack</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="c1">// Your BrowserStack username</span>
+    <span class="nx">password</span><span class="o">:</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="c1">// Your BrowserStack password</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+
+<span class="c1">// The tunneling service I use is https://pagekite.net/support/quickstart/ </span>
+<span class="c1">// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">port</span> <span class="o">=</span> <span class="s2">" 9000 "</span><span class="p">;</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">tunnellink</span> <span class="o">=</span> <span class="s2">"bunyip.pagekite.me/"</span><span class="p">;</span> <span class="c1">// The subdomain that the tunnel can be access by</span>
+<span class="c1">// This is the command that nodejs will execute using child_process.exec</span>
+<span class="c1">// If you were using showoff.io the below command would be "show" + config.port</span>
+<span class="nx">config</span><span class="p">.</span><span class="nx">tunnel</span> <span class="o">=</span> <span class="s2">"pagekite.py"</span> <span class="o">+</span> <span class="nx">config</span><span class="p">.</span><span class="nx">port</span> <span class="o">+</span> <span class="nx">config</span><span class="p">.</span><span class="nx">tunnellink</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">config</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<p><em>(Can this be done in an easier fashion? Do a pull request!)</em></p>
+
+<h2>Test suite adaptors</h2>
+
+<p>Behind the scenes bunyip uses a tool called Yeti unfortunately Yeti only works with YUI Test. However I have written some <a href="https://github.com/ryanseddon/yeti-adaptors">adaptors</a> for QUnit and jasmine, go check out my other repo for examples on using them with your current test suites.</p>
+
+<p>If you use another client-side testsuite please feel free to contribute it to my <a href="https://github.com/ryanseddon/yeti-adaptors">yeti-adaptors</a> repo.</p>
+
+<h2>Examples</h2>
+
+<div class="highlight">
+<pre>bunyip -f index.html
+</pre>
+</div>
+
+
+<p>The above command will launch a simple Yeti hub on port 9000 and use the <code>index.html</code> inside your current working directory.</p>
+
+<div class="highlight">
+<pre>bunyip -f index.html -p 1337
+</pre>
+</div>
+
+
+<p>This will change the port that is used. The global config value will be updated for you so don't worry.</p>
+
+<h3>BrowserStack workers</h3>
+
+<div class="highlight">
+<pre>bunyip -f index.html -b ios
+</pre>
+</div>
+
+
+<p>Assuming you have a BrowserStack paid account and have setup a localhost sharing service the <code>-b ios</code> will send off a command to launch all iOS devices (3 iPhones and 3 iPads) on BrowserStack and once they're connected you can run your test suite.</p>
+
+<div class="highlight">
+<pre>bunyip -s
+</pre>
+</div>
+
+
+<p>This will query the BrowserStack API for any device or browsers that are currently running on your account.</p>
+
+<div class="highlight">
+<pre>bunyip -k &lt;id&gt; or all
+</pre>
+</div>
+
+
+<p>If you no longer need a specific worker or you wish to destroy all of them you can either specify a single worker id or <code>all</code> and it will destroy said worker(s).</p>
+
+<div class="highlight">
+<pre>bunyip -h
+</pre>
+</div>
+
+
+<p>For more info specify the help flag to get more info about each command flag available.</p>
+
+<h2>Contributing</h2>
+
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="https://github.com/cowboy/grunt">grunt</a>.</p>
+
+<h2>Release History</h2>
+
+<p><em>(Nothing yet)</em></p>
+
+<h2>License</h2>
+
+<p>Copyright (c) 2012 Ryan Seddon<br>
+Licensed under the MIT license.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Bunyip maintained by <a href="https://github.com/ryanseddon">ryanseddon</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-32365492-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
