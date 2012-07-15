@@ -82,7 +82,7 @@ For more info specify the help flag to get more info about each command flag ava
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
 
 ## Release History
-_(Nothing yet)_
+* 15/07/2012 - v0.1.3 - Added ability to generate config file and to specify location of config file to use.
 
 ## License
 Copyright (c) 2012 Ryan Seddon  
