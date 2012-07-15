@@ -12,29 +12,25 @@ In order for bunyip to flex its real muscle I recommend you get a paid [BrowserS
 If you wish to test on devices that are not part of your local network you'll be required to setup a tunneling service. I recommend [pagekite](https://pagekite.net/support/quickstart/) as it gives you a nice free chunk of data and allows you to specify a reusable subdomain. [Showoff.io](https://showoff.io/) is another good option.
 
 ### Setup the config.js file
-If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the lib folder you'll see a `config-template.js` file, copy it and rename to config.js. Edit the values to whatever you need it to be.
+If you don't wish to use BrowserStack or a localhost sharing service you can skip this step.
 
-```js
-var config = config || {};
+To generate a config file you can run this command:
 
-config.browserstack = {
-	username: "foo", // Your BrowserStack username
-	password: "bar", // Your BrowserStack password
-	version: 2
-};
+`bunyip config path/to/config.js`
 
-// The tunneling service I use is https://pagekite.net/support/quickstart/ 
-// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name
-config.port = " 9000 ";
-config.tunnellink = "bunyip.pagekite.me/"; // The subdomain that the tunnel can be access by
-// This is the command that nodejs will execute using child_process.exec
-// If you were using showoff.io the below command would be "show" + config.port
-config.tunnel = "pagekite.py" + config.port + config.tunnellink;
+This will take you through a multistep process to setup your username, password, tunnel url and tunnel command.
 
-module.exports = config;
-```
+So I if wanted to save a config file to my home directory I would do the following.
 
-_(Can this be done in an easier fashion? Do a pull request!)_
+`bunyip config ~/config.js`
+
+### Specify config file to use
+
+If I want to specify a specific config file to use the `-c, --cdir` flag lets you do that.
+
+`bunyip -f test/tests.html -c path/to/config.js`
+
+If you do not specify a config file to use it will look in your current working directory for a file name `config.js` otherwise it will not require one in.
 
 ## Test suite adaptors
 
