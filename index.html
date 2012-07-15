@@ -51,31 +51,31 @@
 
 <h3>Setup the config.js file</h3>
 
-<p>If you don't wish to use BrowserStack or a localhost sharing service you can skip this step. If you look inside the lib folder you'll see a <code>config-template.js</code> file, copy it and rename to config.js. Edit the values to whatever you need it to be.</p>
+<p>If you don't wish to use BrowserStack or a localhost sharing service you can skip this step.</p>
+
+<p>To generate a config file you can run this command:</p>
 
 <div class="highlight">
-<pre><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="nx">config</span> <span class="o">||</span> <span class="p">{};</span>
-
-<span class="nx">config</span><span class="p">.</span><span class="nx">browserstack</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">username</span><span class="o">:</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="c1">// Your BrowserStack username</span>
-    <span class="nx">password</span><span class="o">:</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="c1">// Your BrowserStack password</span>
-    <span class="nx">version</span><span class="o">:</span> <span class="mi">2</span>
-<span class="p">};</span>
-
-<span class="c1">// The tunneling service I use is https://pagekite.net/support/quickstart/ </span>
-<span class="c1">// You can easily use another service lke showoff.io only requirement is that you can specify a fixed url name</span>
-<span class="nx">config</span><span class="p">.</span><span class="nx">port</span> <span class="o">=</span> <span class="s2">" 9000 "</span><span class="p">;</span>
-<span class="nx">config</span><span class="p">.</span><span class="nx">tunnellink</span> <span class="o">=</span> <span class="s2">"bunyip.pagekite.me/"</span><span class="p">;</span> <span class="c1">// The subdomain that the tunnel can be access by</span>
-<span class="c1">// This is the command that nodejs will execute using child_process.exec</span>
-<span class="c1">// If you were using showoff.io the below command would be "show" + config.port</span>
-<span class="nx">config</span><span class="p">.</span><span class="nx">tunnel</span> <span class="o">=</span> <span class="s2">"pagekite.py"</span> <span class="o">+</span> <span class="nx">config</span><span class="p">.</span><span class="nx">port</span> <span class="o">+</span> <span class="nx">config</span><span class="p">.</span><span class="nx">tunnellink</span><span class="p">;</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">config</span><span class="p">;</span>
-</pre>
+<pre>bunyip config path/to/config.js</pre>
 </div>
 
+<p>This will take you through a multistep process to setup your username, password, tunnel url and tunnel command.</p>
 
-<p><em>(Can this be done in an easier fashion? Do a pull request!)</em></p>
+<p>So I if wanted to save a config file to my home directory I would do the following.</p>
+
+<div class="highlight">
+<pre>bunyip config ~/config.js</pre>
+</div>
+
+<h3>Specify config file to use</h3>
+
+<p>If I want to specify a specific config file to use the <code>-c, --cdir</code> flag lets you do that.</p>
+
+<div class="highlight">
+<pre>bunyip -f test/tests.html -c path/to/config.js</pre>
+</div>
+
+<p>If you do not specify a config file to use it will look in your current working directory for a file name <code>config.js</code> otherwise it will not require one in.</p>
 
 <h2>Test suite adaptors</h2>
 
