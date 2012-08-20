@@ -1,0 +1,45 @@
+{
+  "name": "bunyip",
+  "description": "Automate client-side unit testing in real browsers using the cli",
+  "version": "0.2.0",
+  "homepage": "http://ryanseddon.github.com/bunyip",
+  "author": {
+    "name": "Ryan Seddon",
+    "url": "http://www.thecssninja.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:ryanseddon/bunyip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanseddon/bunyip/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://ryanseddon.github.com/bunyip/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/bunyip",
+  "bin": {
+    "bunyip": "./cli.js"
+  },
+  "engines": {
+    "node": "~0.8.x"
+  },
+  "scripts": {
+    "test": "vows test/*.js"
+  },
+  "dependencies": {
+    "commander": "0.6.x",
+	  "browserstack": "0.1.x",
+	  "yeti": "0.2.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.9",
+    "cli-easy": "0.1.x",
+    "vows": ">= 0.5.8",
+    "mockery": ">= 1.1.2"
+  },
+  "keywords": ["unit tests", "bunyip", "browserstack", "mobile", "cli"]
+}
