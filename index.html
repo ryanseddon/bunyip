@@ -98,8 +98,44 @@
 </pre>
 </div>
 
+<p>This will change the port that is used. The global config value will be updated for you so don't worry.</p>
+
+<h2>
+<a href="#examples" class="anchor" name="examples"><span class="mini-icon mini-icon-link"></span></a>Examples</h2>
+
+<div class="highlight"><pre>bunyip -f index.html
+</pre></div>
+
+<p>The above command will launch a simple Yeti hub on port 9000 and use the <code>index.html</code> inside your current working directory.</p>
+
+<div class="highlight"><pre>bunyip -f index.html -p 1337
+</pre></div>
 
 <p>This will change the port that is used. The global config value will be updated for you so don't worry.</p>
+
+<h3>Locally installed browsers</h3>
+
+<p>Using the <code>local</code> command you can now open your test suite in all locally installed browsers or specify a series of browsers</p>
+
+<div class="highlight"><pre>bunyip -f index.html <span class="nb">local</span>
+</pre></div>
+
+<p>This will open in all locally installed browsers with one assumption that phantomjs is installed in <code>/usr/bin/</code>.</p>
+
+<div class="highlight"><pre>bunyip -f index.html <span class="nb">local</span> -l <span class="s2">"firefox|chrome|safari|phantomjs"</span>
+</pre></div>
+
+<p>This will open the installed versions of Firefox, Chrome, Safari and Phantomjs.</p>
+
+<p>The <code>local</code> command looks for the following browsers:</p>
+
+<ul>
+<li>Firefox, Firefox Nightly</li>
+<li>Chrome, Chrome Canary</li>
+<li>Opera, Opera Next</li>
+<li>Safari</li>
+<li>Phantomjs</li>
+</ul>
 
 <h3>BrowserStack workers</h3>
 
