@@ -52,6 +52,30 @@ bunyip -f index.html -p 1337
 
 This will change the port that is used. The global config value will be updated for you so don't worry.
 
+### Locally installed browsers
+
+Using the `local` command you can now open your test suite in all locally installed browsers or specify a series of browsers
+
+```bash
+bunyip -f index.html local
+```
+
+This will open in all locally installed browsers with one assumption that phantomjs is installed in `/usr/bin/`.
+
+```bash
+bunyip -f index.html local -l "firefox|chrome|safari|phantomjs"
+```
+
+This will open the installed versions of Firefox, Chrome, Safari and Phantomjs.
+
+The `local` command looks for the following browsers:
+
+* Firefox, Firefox Nightly
+* Chrome, Chrome Canary
+* Opera, Opera Next
+* Safari
+* Phantomjs
+
 ### BrowserStack workers
 
 ```bash
@@ -82,6 +106,7 @@ For more info specify the help flag to get more info about each command flag ava
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
 
 ## Release History
+* 20/08/2012 - v0.2.0 - Added a `local` command to run your test suite in locally installed browsers.
 * 15/07/2012 - v0.1.3 - Added ability to generate config file and to specify location of config file to use.
 
 ## License
