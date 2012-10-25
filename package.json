@@ -1,7 +1,7 @@
 {
   "name": "bunyip",
   "description": "Automate client-side unit testing in real browsers using the cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "http://ryanseddon.github.com/bunyip",
   "author": {
     "name": "Ryan Seddon",

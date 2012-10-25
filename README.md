@@ -106,6 +106,7 @@ For more info specify the help flag to get more info about each command flag ava
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](https://github.com/cowboy/grunt).
 
 ## Release History
+* 25/10/2012 - v0.2.2 - Fixes incompatibility with latest yeti release.
 * 20/08/2012 - v0.2.0 - Added a `local` command to run your test suite in locally installed browsers.
 * 15/07/2012 - v0.1.3 - Added ability to generate config file and to specify location of config file to use.
 
