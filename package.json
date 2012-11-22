@@ -34,7 +34,7 @@
   "dependencies": {
     "commander": "0.6.x",
 	  "browserstack": "0.1.x",
-	  "yeti": "0.2.12"
+	  "yeti": ">=0.2.14"
   },
   "devDependencies": {
     "grunt": "~0.3.9",
