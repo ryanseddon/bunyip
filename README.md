@@ -34,9 +34,7 @@ If you do not specify a config file to use it will look in your current working 
 
 ## Test suite adaptors
 
-Behind the scenes bunyip uses a tool called Yeti unfortunately Yeti only works with YUI Test. However I have written some [adaptors](https://github.com/ryanseddon/yeti-adaptors) for QUnit and jasmine, go check out my other repo for examples on using them with your current test suites.
-
-If you use another client-side testsuite please feel free to contribute it to my [yeti-adaptors](https://github.com/ryanseddon/yeti-adaptors) repo.
+Behind the scenes bunyip uses a tool called Yeti. Yeti 0.2.14+ works with [YUI Test](http://yuilibrary.com/yuitest/), [QUnit](http://qunitjs.com/), [Mocha](http://visionmedia.github.com/mocha/), [Jasmine](http://pivotal.github.com/jasmine/) or [DOH](http://dojotoolkit.org/reference-guide/util/doh.html). If you use another client-side test suite, you'll have to write an adaptor - please feel free to contribute it to my [yeti-adaptors](https://github.com/ryanseddon/yeti-adaptors) repo, or file an issue/PR with [Yeti](https://github.com/yui/yeti) itself.
 
 ## Examples
 
@@ -111,5 +109,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 15/07/2012 - v0.1.3 - Added ability to generate config file and to specify location of config file to use.
 
 ## License
-Copyright (c) 2012 Ryan Seddon  
+Copyright (c) 2012 Ryan Seddon
 Licensed under the MIT license.
