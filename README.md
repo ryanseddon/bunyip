@@ -68,7 +68,7 @@ This will open the installed versions of Firefox, Chrome, Safari and Phantomjs.
 
 The `local` command looks for the following browsers:
 
-* Firefox, Firefox Nightly
+* Firefox, Firefox Aurora, Firefox Nightly
 * Chrome, Chrome Canary
 * Opera, Opera Next
 * Safari
